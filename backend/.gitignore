@@ -6,6 +6,10 @@
 # dotenv files
 .env
 
+# Sqlite files
+*.sqlite
+*.sqlite*
+
 # User-specific files
 *.rsuser
 *.suo

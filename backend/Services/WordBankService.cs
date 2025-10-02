@@ -1,6 +1,7 @@
 using Backend.Data;
 using Backend.Models.Entities;
 using Backend.Models.Requests;
+using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Services;
 
@@ -13,6 +14,9 @@ public class WordBankService(AppDbContext context)
 
         if (string.IsNullOrEmpty(request.Category))
             return (false, "Category word is empty");
+
+        if (await context.Words.AnyAsync(w => request.English == w.English && request.Kky == w.Kky))
+            return (false, "Word already exists");
 
         var newWord = new Word
         {

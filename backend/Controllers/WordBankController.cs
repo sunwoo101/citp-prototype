@@ -9,7 +9,7 @@ namespace Backend.Controllers;
 [Route("api/[controller]")]
 public class WordBankController(WordBankService wordBankService) : ControllerBase
 {
-    [HttpPost("add-word")]
+    [HttpPost("add")]
     public async Task<IActionResult> AddWord([FromBody] AddWordRequest request)
     {
         var (success, message) = await wordBankService.AddWordAsync(request);
