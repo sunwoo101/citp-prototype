@@ -7,7 +7,6 @@
 .env
 
 # Sqlite files
-*.sqlite
 *.sqlite*
 
 # User-specific files
