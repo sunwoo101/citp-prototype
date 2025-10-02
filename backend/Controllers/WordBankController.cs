@@ -14,6 +14,9 @@ public class WordBankController(WordBankService wordBankService) : ControllerBas
     {
         var (success, message) = await wordBankService.AddWordAsync(request);
 
-        return Ok(new ApiResponse<object>(success, message));
+        if (success)
+            return Ok(new ApiResponse<object>(success, message));
+
+        return BadRequest(new ApiResponse<object>(success, message));
     }
 }

@@ -1,5 +1,6 @@
 import csv
 import requests
+from requests.exceptions import ConnectionError, Timeout, RequestException
 import os
 import sys
 
@@ -25,10 +26,16 @@ def import_words(filename):
                 "category": row.get("category"),
                 "submittedBy": row.get("submitted by") or None
             }
-            response = requests.post(f"{API_URL}/add", json=payload)
-            data = response.json()
-            message = data.get("message")
-            print(message)
+            try:
+                response = requests.post(f"{API_URL}/add", json=payload)
+                data = response.json()
+                message = data.get("message")
+                if response.status_code == 200:
+                    print("✅", message)
+                else:
+                    print("❌", message)
+            except ConnectionError:
+                print("❌ Server is offline or unreachable.")
 
 
 if __name__ == "__main__":
