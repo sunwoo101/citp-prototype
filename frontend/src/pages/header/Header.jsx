@@ -20,27 +20,27 @@ export default function Header() {
                 <Link to="/words">
                     <Button
                         text={"WORDS"}
-                        bgColor="bg-red-500"
-                        bdColor={"border-red-600"}
+                        bgColor="bg-[#ff0000]"
+                        ptColor="bg-[#ff4f4f]"
                     />
                 </Link>
                 <Link to="/learn">
                     <Button
                         text={"LEARN"}
-                        bgColor="bg-yellow-400"
-                        bdColor={"border-yellow-500"}
+                        bgColor="bg-[#ffa100]"
+                        ptColor="bg-[#ffbe4f]"
                     />
                 </Link>
                 <Link to="/games">
                     <Button
                         text={"GAMES"}
-                        bgColor="bg-red-500"
-                        bdColor={"border-red-600"}
+                        bgColor="bg-[#ff0000]"
+                        ptColor="bg-[#ff4f4f]"
                     />
                 </Link>
-                <Search color="red" size={60} strokeWidth={4} />
+                <Search color="#ff0000" size={60} strokeWidth={4} />
                 <CircleUserRound color="gray" size={60} strokeWidth={1} />
-                <Menu color="red" size={60} strokeWidth={4} />
+                <Menu color="#ff0000" size={60} strokeWidth={4} />
             </div>
         </header>
     );

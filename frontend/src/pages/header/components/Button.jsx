@@ -2,31 +2,28 @@ import pattern from "../../../assets/Pattern.svg";
 
 export default function Button({
     text,
-    bgColor = "bg-red-500",
-    bdColor = "border-red-600",
-    ptColor = "bg-red-400",
+    bgColor = "bg-[#ff0000]",
+    ptColor = "bg-[#ff4f4f]",
+    zoom = "200%",
 }) {
     return (
-        <button
-            className={`relative text-white ${bdColor} border-6 rounded-full text-2xl font-semibold py-3 px-8 leading-none overflow-hidden`}
-        >
-            {/* Background color */}
-            <span className={`absolute inset-0 ${bgColor}`}></span>
+        <button className="relative overflow-hidden rounded-full text-white text-2xl font-semibold py-3 px-8 leading-none cursor-pointer">
+            <span className={`absolute inset-0 ${bgColor} rounded-full`} />
 
-            {/* Pattern overlay using mask and ptColor */}
             <span
-                className={`absolute inset-0 ${ptColor}`}
+                className={`absolute inset-2 rounded-full ${ptColor}`}
                 style={{
                     WebkitMaskImage: `url(${pattern})`,
                     maskImage: `url(${pattern})`,
                     WebkitMaskRepeat: "no-repeat",
                     maskRepeat: "no-repeat",
-                    WebkitMaskSize: "cover",
-                    maskSize: "cover",
+                    WebkitMaskPosition: "60% 60%",
+                    maskPosition: "60% 60%",
+                    WebkitMaskSize: zoom,
+                    maskSize: zoom,
                 }}
-            ></span>
+            />
 
-            {/* Text */}
             <span className="relative z-10">{text}</span>
         </button>
     );

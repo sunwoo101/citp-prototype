@@ -8,7 +8,7 @@ export default function Button({
 }) {
     return (
         <button
-            className={`relative w-full text-white rounded-4xl text-5xl font-extrabold py-14 px-8 leading-none overflow-hidden cursor-pointer`}
+            className={`relative w-full text-white rounded-4xl text-4xl font-extrabold py-8 px-8 leading-none overflow-hidden cursor-pointer`}
         >
             <span className={`absolute inset-0 ${bgColor} rounded-4xl`} />
 
