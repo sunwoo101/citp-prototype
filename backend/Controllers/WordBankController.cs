@@ -1,3 +1,4 @@
+using Backend.Models.Entities;
 using Backend.Models.Requests;
 using Backend.Models.Responses;
 using Backend.Services;
@@ -16,6 +17,17 @@ public class WordBankController(WordBankService wordBankService) : ControllerBas
 
         if (success)
             return Ok(new ApiResponse<object>(success, message));
+
+        return BadRequest(new ApiResponse<object>(success, message));
+    }
+
+    [HttpGet("get")]
+    public async Task<IActionResult> GetWords([FromQuery] GetWordsRequest request)
+    {
+        var (success, message, words) = await wordBankService.GetWordsAsync(request);
+
+        if (success)
+            return Ok(new ApiResponse<List<Word>>(success, message, words));
 
         return BadRequest(new ApiResponse<object>(success, message));
     }

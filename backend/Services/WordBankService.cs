@@ -33,4 +33,44 @@ public class WordBankService(AppDbContext context)
 
         return (true, "Successfully added new word");
     }
+
+    public async Task<(bool Success, string Message, List<Word> Words)> GetWordsAsync(GetWordsRequest request)
+    {
+        int pageSize = (request.ResultsPerPage.HasValue && request.ResultsPerPage > 0)
+            ? request.ResultsPerPage.Value
+            : 20;
+
+        int pageNumber = (request.PageNumber.HasValue && request.PageNumber > 0)
+            ? request.PageNumber.Value
+            : 1;
+
+        string? partial = request.EnglishPartial?.Trim();
+        string? category = request.Category?.Trim();
+
+        var q = context.Words.AsQueryable();
+
+        if (!string.IsNullOrEmpty(partial))
+        {
+            string p = partial.ToLower();
+            q = q.Where(w => EF.Functions.Like(w.English.ToLower(), $"{p}%"));
+        }
+
+        if (!string.IsNullOrEmpty(category))
+        {
+            string c = category.ToLower();
+            q = q.Where(w => w.Category.ToLower() == c);
+        }
+
+        q = q.OrderBy(w => w.English.ToLower());
+
+        List<Word> words = await q
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        if (words.Count == 0)
+            return (false, "No words found", new List<Word>());
+
+        return (true, "Successfully retrieved words", words);
+    }
 }
