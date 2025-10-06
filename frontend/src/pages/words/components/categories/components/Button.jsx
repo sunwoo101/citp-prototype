@@ -1,14 +1,20 @@
-import pattern from "../../../assets/Pattern.svg";
+import pattern from "../../../../../assets/Pattern.svg";
 
 export default function Button({
     text,
     bgColor = "bg-[#ff0000]",
     ptColor = "bg-[#ff4f4f]",
     zoom = "200%",
+    setCategory,
+    setSelectCategory,
 }) {
     return (
         <button
-            className={`relative w-full text-white rounded-4xl text-7xl font-extrabold py-36 px-8 leading-none overflow-hidden cursor-pointer`}
+            onClick={() => {
+                if (setCategory) setCategory(text);
+                if (setSelectCategory) setSelectCategory(false);
+            }}
+            className={`relative w-full text-white rounded-4xl text-7xl font-extrabold py-16 px-8 leading-none overflow-hidden cursor-pointer`}
         >
             <span className={`absolute inset-0 ${bgColor} rounded-4xl`} />
 

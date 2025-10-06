@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import pattern from "../../assets/Pattern.svg";
-import WordSearch from "./components/WordSearch";
+import WordSearch from "./components/word-search/WordSearch";
+import Categories from "./components/categories/Categories";
+import LetterSearch from "./components/letter-search/LetterSearch";
+import WordList from "./components/word-list/WordList";
 
 export default function Words() {
     const [englishPartial, setEnglishPartial] = useState("");
     const [category, setCategory] = useState("");
-    const [pageNumber, setPageNumber] = useState(1);
-    const [resultsPerPage, setResultsPerPage] = useState(20);
+    const [selectCategory, setSelectCategory] = useState(false);
+    const [selectLetter, setSelectLetter] = useState(false);
 
     return (
         <>
@@ -29,8 +32,25 @@ export default function Words() {
                             maskSize: "500% 500%",
                         }}
                     />
-
-                    {!englishPartial && !category ? <WordSearch /> : null}
+                    {selectCategory ? (
+                        <Categories
+                            setCategory={setCategory}
+                            setSelectCategory={setSelectCategory}
+                        />
+                    ) : selectLetter ? (
+                        <LetterSearch
+                            setEnglishPartial={setEnglishPartial}
+                            setSelectLetter={setSelectLetter}
+                        />
+                    ) : category || englishPartial ? (
+                        <WordList title={category || englishPartial} />
+                    ) : (
+                        <WordSearch
+                            setSelectCategory={setSelectCategory}
+                            setSelectLetter={setSelectLetter}
+                            setEnglishPartial={setEnglishPartial}
+                        />
+                    )}
                 </main>
                 <Footer />
             </div>

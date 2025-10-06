@@ -1,6 +1,6 @@
 import { Search as SearchIcon } from "lucide-react";
 
-export default function SearchInput() {
+export default function SearchInput({ setEnglishPartial }) {
     return (
         <div className="relative w-full">
             <input
