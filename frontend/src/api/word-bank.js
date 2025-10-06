@@ -15,12 +15,19 @@ export const get = async (
         resultsPerPage,
     };
 
-    // ✅ Log full request details
-    console.log("API Request:", {
-        url: `${controller}/get`,
-        params,
-    });
-
-    // Make the request
     return await api.get(`${controller}/get`, { params });
+};
+
+export const count = async () => {
+    return await api.get(`${controller}/count`);
+};
+
+export const add = async (english, kky, tsc, category, submittedBy) => {
+    return await api.post(`${controller}/add`, {
+        english,
+        kky,
+        tsc,
+        category,
+        submittedBy,
+    });
 };

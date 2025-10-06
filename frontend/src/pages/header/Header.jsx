@@ -9,11 +9,13 @@ export default function Header() {
     return (
         <header className="flex items-center justify-between p-4">
             <span className="text-8xl">
-                <img
-                    src={logo}
-                    alt="Torres Strait Islander Flag"
-                    className="h-[1em] w-auto object-contain"
-                />
+                <Link to="/">
+                    <img
+                        src={logo}
+                        alt="Torres Strait Islander Flag"
+                        className="h-[1em] w-auto object-contain"
+                    />
+                </Link>
             </span>
 
             <div className="flex gap-2 items-center justify-end">

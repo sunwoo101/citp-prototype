@@ -29,10 +29,8 @@ export default function WordList({ title, englishPartial, category }) {
 
                 setWords(result?.data || []);
             } catch (err) {
-                // AxiosError safe extraction
                 const serverMsg =
                     err?.response?.data?.message ||
-                    err?.response?.data?.title || // e.g., ProblemDetails.Title
                     err?.message ||
                     "Failed to fetch words";
 

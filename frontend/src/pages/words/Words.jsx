@@ -60,12 +60,4 @@ export default function Words() {
             </div>
         </>
     );
-
-    if (!englishPartial) {
-        return <div></div>;
-    }
-
-    if (!category) {
-        return <div></div>;
-    }
 }
