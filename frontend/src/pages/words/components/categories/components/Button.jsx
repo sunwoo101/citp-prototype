@@ -14,7 +14,7 @@ export default function Button({
                 if (setCategory) setCategory(text);
                 if (setSelectCategory) setSelectCategory(false);
             }}
-            className={`relative w-full text-white rounded-4xl text-7xl font-extrabold py-16 px-8 leading-none overflow-hidden cursor-pointer`}
+            className={`relative w-full text-white rounded-4xl text-5xl font-extrabold py-16 px-8 leading-none overflow-hidden cursor-pointer`}
         >
             <span className={`absolute inset-0 ${bgColor} rounded-4xl`} />
 

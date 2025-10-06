@@ -3,8 +3,42 @@ import englishFlag from "../../../assets/EnglishFlag.png";
 import axe from "../../../assets/Axe.svg";
 import { Volume2 } from "lucide-react";
 import pattern from "../../../assets/Pattern.svg";
+import { useState, useEffect } from "react";
+import { wotd } from "../../../api/word-bank";
 
 export default function WordOfTheDay() {
+    const [word, setWord] = useState(null);
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        const fetchCount = async () => {
+            try {
+                setLoading(true);
+                setError(null);
+
+                const { data: result } = await wotd();
+
+                if (result?.success === false) {
+                    throw new Error(result?.message || "Request failed");
+                }
+
+                setWord(result?.data || null);
+            } catch (err) {
+                const serverMsg =
+                    err?.response?.data?.message ||
+                    err?.message ||
+                    "Failed to fetch word of the day";
+
+                setError(serverMsg);
+                setWord(null);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchCount();
+    }, []);
     return (
         <div className="relative flex flex-col gap-2 w-full h-full text-white rounded-[4vw] py-2 px-2 leading-none overflow-hidden">
             <span className="absolute inset-0 bg-[#ff6600] rounded-[4vw]" />
@@ -24,7 +58,7 @@ export default function WordOfTheDay() {
             <div className="relative z-10 flex flex-col gap-2 h-full p-8">
                 <h3 className="text-7xl text-center font-extrabold">WORD OF THE DAY</h3>
 
-                <h2 className="flex items-center justify-center gap-16 text-9xl font-extrabold leading-none">
+                <h2 className="flex items-center justify-center gap-16 text-7xl font-extrabold leading-none">
                     <span
                         className="h-[1em] w-[1em] bg-white object-contain"
                         style={{
@@ -38,7 +72,7 @@ export default function WordOfTheDay() {
                             maskPosition: "center",
                         }}
                     />
-                    AGA
+                    {word && word.kky}
                 </h2>
 
                 <div className="flex items-center justify-between px-6 mt-auto">
@@ -49,7 +83,7 @@ export default function WordOfTheDay() {
                                 alt="English Flag"
                                 className="h-[1em] w-auto object-contain"
                             />
-                            AXE
+                            {word && word.english}
                         </h2>
                         <h2 className="flex items-center gap-2 text-5xl font-extrabold leading-none">
                             <img
@@ -57,7 +91,7 @@ export default function WordOfTheDay() {
                                 alt="Torres Strait Islander Flag"
                                 className="h-[1em] w-auto object-contain"
                             />
-                            TOMYOK
+                            {word && word.tsc}
                         </h2>
                     </div>
                     <Volume2 color="white" size={120} strokeWidth={2} />

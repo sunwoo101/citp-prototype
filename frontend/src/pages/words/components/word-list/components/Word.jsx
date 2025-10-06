@@ -5,10 +5,10 @@ import pattern from "../../../../../assets/Pattern.svg";
 
 export default function Word({ english, kky, tsc }) {
     return (
-        <div className="relative flex flex-col gap-2 w-full h-full text-white rounded-[4vw] py-2 px-2 leading-none overflow-hidden">
-            <span className="absolute inset-0 bg-[#ff6600] rounded-[4vw]" />
+        <div className="relative flex flex-col gap-2 w-full h-full text-white rounded-4xl py-2 px-2 leading-none overflow-hidden">
+            <span className="absolute inset-0 bg-[#ff6600] rounded-4xl" />
             <span
-                className="absolute inset-3 bg-[#e55c00] rounded-[4vw]"
+                className="absolute inset-3 bg-[#e55c00] rounded-4xl"
                 style={{
                     WebkitMaskImage: `url(${pattern})`,
                     maskImage: `url(${pattern})`,

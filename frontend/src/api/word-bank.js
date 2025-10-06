@@ -31,3 +31,7 @@ export const add = async (english, kky, tsc, category, submittedBy) => {
         submittedBy,
     });
 };
+
+export const wotd = async () => {
+    return await api.get(`${controller}/wotd`);
+};

@@ -6,12 +6,21 @@ import WordSearch from "./components/word-search/WordSearch";
 import Categories from "./components/categories/Categories";
 import LetterSearch from "./components/letter-search/LetterSearch";
 import WordList from "./components/word-list/WordList";
+import { useLocation } from "react-router-dom";
 
 export default function Words() {
     const [englishPartial, setEnglishPartial] = useState("");
     const [category, setCategory] = useState("");
     const [selectCategory, setSelectCategory] = useState(false);
     const [selectLetter, setSelectLetter] = useState(false);
+
+    const location = useLocation();
+
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const search = params.get("search") || "";
+        setEnglishPartial(search);
+    }, [location.search]);
 
     return (
         <>
@@ -52,7 +61,6 @@ export default function Words() {
                         <WordSearch
                             setSelectCategory={setSelectCategory}
                             setSelectLetter={setSelectLetter}
-                            setEnglishPartial={setEnglishPartial}
                         />
                     )}
                 </main>
