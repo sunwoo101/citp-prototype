@@ -42,4 +42,15 @@ public class WordBankController(WordBankService wordBankService) : ControllerBas
 
         return BadRequest(new ApiResponse<object>(success, message));
     }
+
+    [HttpGet("wotd")]
+    public async Task<IActionResult> Wotd()
+    {
+        var (success, message, word) = await wordBankService.WotdAsync();
+
+        if (success)
+            return Ok(new ApiResponse<Word>(success, message, word));
+
+        return BadRequest(new ApiResponse<object>(success, message));
+    }
 }

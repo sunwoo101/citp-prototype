@@ -7,6 +7,27 @@ namespace Backend.Services;
 
 public class WordBankService(AppDbContext context)
 {
+    public async Task<(bool Success, string Message, Word? Word)> WotdAsync()
+    {
+        var day = DateOnly.FromDateTime(DateTime.UtcNow);
+        int seed = day.DayNumber;
+        seed = (int)DateTimeOffset.UtcNow.ToUnixTimeSeconds(); // For testing
+
+        int count = await context.Words.CountAsync();
+        if (count == 0)
+            return (false, "No words found", null);
+
+        var rnd = new Random(seed);
+        int index = rnd.Next(count);
+
+        var word = await context.Words
+        .OrderBy(w => w.Id)
+        .Skip(index)
+        .FirstOrDefaultAsync();
+
+        return (true, "Successfully added new word", word);
+    }
+
     public async Task<(bool Success, string Message)> AddWordAsync(AddWordRequest request)
     {
         if (string.IsNullOrEmpty(request.English))
@@ -46,6 +67,10 @@ public class WordBankService(AppDbContext context)
         int pageNumber = (request.PageNumber.HasValue && request.PageNumber > 0)
             ? request.PageNumber.Value
             : 1;
+
+        // Remove these once db gets big
+        pageNumber = 1;
+        pageSize = 10000;
 
         string? partial = request.EnglishPartial?.Trim();
         string? category = request.Category?.Trim();
