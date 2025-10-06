@@ -3,12 +3,15 @@ import Home from "./pages/home/Home";
 import NotFound from "./pages/not-found/NotFound";
 import UnderDevelopment from "./pages/under-development/UnderDevelopment";
 
+import Words from "./pages/words/Words";
+
 function App() {
     return (
         <>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/words" element={<Words />} />
                     <Route path="/games" element={<UnderDevelopment />} />
                     <Route path="/videos" element={<UnderDevelopment />} />
                     <Route path="/database" element={<UnderDevelopment />} />

@@ -1,6 +1,6 @@
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
-import Search from "./components/Search";
+import SearchInput from "./components/SearchInput";
 import WordOfTheDay from "./components/WordOfTheDay";
 import Button from "./components/Button";
 import { Link } from "react-router-dom";
@@ -32,7 +32,7 @@ export default function Home() {
                             FIND KALAW KAWAW YA WORDS!
                         </h1>
                         <div className="w-full max-w-lg">
-                            <Search />
+                            <SearchInput />
                         </div>
                         <div className="w-full flex flex-wrap justify-center items-center gap-4">
                             <div className="flex flex-1 basis-0.5 min-w-[320px]">
