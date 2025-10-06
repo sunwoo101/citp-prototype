@@ -12,6 +12,9 @@ public class WordBankService(AppDbContext context)
         if (string.IsNullOrEmpty(request.English))
             return (false, "English word is empty");
 
+        if (string.IsNullOrEmpty(request.Kky))
+            return (false, "Kalaw Kawaw Ya word is empty");
+
         if (string.IsNullOrEmpty(request.Category))
             return (false, "Category word is empty");
 
@@ -72,5 +75,11 @@ public class WordBankService(AppDbContext context)
             return (false, "No words found", new List<Word>());
 
         return (true, "Successfully retrieved words", words);
+    }
+
+    public async Task<(bool Success, string Message, int Count)> GetCountAsync()
+    {
+        int count = await context.Words.CountAsync();
+        return (true, "Success", count);
     }
 }

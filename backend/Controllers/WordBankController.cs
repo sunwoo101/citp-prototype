@@ -31,4 +31,15 @@ public class WordBankController(WordBankService wordBankService) : ControllerBas
 
         return BadRequest(new ApiResponse<object>(success, message));
     }
+
+    [HttpGet("count")]
+    public async Task<IActionResult> GetCount()
+    {
+        var (success, message, count) = await wordBankService.GetCountAsync();
+
+        if (success)
+            return Ok(new ApiResponse<int>(success, message, count));
+
+        return BadRequest(new ApiResponse<object>(success, message));
+    }
 }
