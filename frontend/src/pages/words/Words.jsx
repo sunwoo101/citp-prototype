@@ -43,7 +43,11 @@ export default function Words() {
                             setSelectLetter={setSelectLetter}
                         />
                     ) : category || englishPartial ? (
-                        <WordList title={category || englishPartial} />
+                        <WordList
+                            title={category || englishPartial}
+                            englishPartial={englishPartial}
+                            category={category}
+                        />
                     ) : (
                         <WordSearch
                             setSelectCategory={setSelectCategory}

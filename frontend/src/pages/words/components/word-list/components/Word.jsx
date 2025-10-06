@@ -21,7 +21,7 @@ export default function Word({ english, kky, tsc }) {
                 }}
             />
             <div className="relative z-10 flex flex-col gap-4 h-full p-8">
-                <h2 className="flex items-center justify-center gap-16 text-7xl font-extrabold leading-none">
+                <h2 className="flex items-center justify-center gap-16 text-5xl font-extrabold leading-none">
                     {kky}
                 </h2>
 
