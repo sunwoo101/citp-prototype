@@ -55,7 +55,7 @@ public class WordBankService(AppDbContext context)
         context.Words.Add(newWord);
         await context.SaveChangesAsync();
 
-        return (true, "Successfully added new word");
+        return (true, "Entry has been submitted for approval");
     }
 
     public async Task<(bool Success, string Message, List<Word> Words)> GetWordsAsync(GetWordsRequest request)
