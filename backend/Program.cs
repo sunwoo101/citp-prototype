@@ -15,6 +15,7 @@ public class Program
             "http://localhost:5173",
             "http://127.0.0.1:5173",
             "https://localhost:5173",
+            "http://154.53.56.9",
         };
 
         builder.Services.AddCors(options =>
@@ -38,6 +39,13 @@ public class Program
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
         }
+        else
+        {
+            builder.WebHost.ConfigureKestrel(serverOptions =>
+            {
+                serverOptions.ListenAnyIP(5039); // Bind to 0.0.0.0
+            });
+        }
 
         var app = builder.Build();
 
@@ -49,11 +57,15 @@ public class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+        else
+        {
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+            app.MapFallbackToFile("index.html");
+        }
 
-        app.UseHttpsRedirection();
 
         app.UseAuthorization();
-
         app.MapControllers();
 
         app.Run();
