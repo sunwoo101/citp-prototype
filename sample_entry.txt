@@ -1,5 +1,0 @@
-English=anchor
-kky=iadi
-tsc=angka
-category=tool
-name=Luctari
