@@ -11,7 +11,7 @@ public class WordBankService(AppDbContext context)
     {
         var day = DateOnly.FromDateTime(DateTime.UtcNow);
         int seed = day.DayNumber;
-        seed = (int)DateTimeOffset.UtcNow.ToUnixTimeSeconds(); // For testing
+        //seed = (int)DateTimeOffset.UtcNow.ToUnixTimeSeconds(); // For testing
 
         int count = await context.Words.CountAsync();
         if (count == 0)
