@@ -48,8 +48,8 @@ export default function NewEntry() {
 
     return (
         <>
-            <h1 className="text-white text-7xl font-black leading-none">NEW ENTRY</h1>
-            <div className="w-xl flex flex-col gap-4 p-4">
+            <h1 className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight sm:leading-none text-center">NEW ENTRY</h1>
+            <div className="w-full max-w-xl flex flex-col gap-3 sm:gap-4 p-2 sm:p-4">
                 <InputField
                     placeholder={"English"}
                     value={english}
@@ -75,7 +75,7 @@ export default function NewEntry() {
                     value={submittedBy}
                     onChange={setSubmittedBy}
                 />
-                <p className="text-red-600 text-xl font-black leading-none">
+                <p className="text-red-600 text-sm sm:text-base md:text-lg lg:text-xl font-black leading-none">
                     {message}
                 </p>
                 <div className="flex justify-center">

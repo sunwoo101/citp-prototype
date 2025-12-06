@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const endpointUrl = "http://localhost:5039/api";
+const endpointUrl = "https://kky4u.online/api";
 
 // Create axios instance
 const api = axios.create({

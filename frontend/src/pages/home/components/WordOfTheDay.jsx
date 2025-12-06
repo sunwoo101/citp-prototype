@@ -55,10 +55,10 @@ export default function WordOfTheDay() {
                     maskSize: "150%",
                 }}
             />
-            <div className="relative z-10 flex flex-col gap-2 h-full p-8">
-                <h3 className="text-7xl text-center font-extrabold">WORD OF THE DAY</h3>
+            <div className="relative z-10 flex flex-col gap-2 h-full p-4 sm:p-6 md:p-8">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-center font-extrabold">WORD OF THE DAY</h3>
 
-                <h2 className="flex items-center justify-center gap-16 text-7xl font-extrabold leading-none">
+                <h2 className="flex items-center justify-center gap-4 sm:gap-8 md:gap-12 lg:gap-16 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold leading-none">
                     <span
                         className="h-[1em] w-[1em] bg-white object-contain"
                         style={{
@@ -75,9 +75,9 @@ export default function WordOfTheDay() {
                     {word && word.kky}
                 </h2>
 
-                <div className="flex items-center justify-between px-6 mt-auto">
-                    <div className="flex flex-col gap-6">
-                        <h2 className="flex items-center gap-2 text-5xl font-extrabold leading-none">
+                <div className="flex items-center justify-between px-2 sm:px-4 md:px-6 mt-auto gap-2 sm:gap-4">
+                    <div className="flex flex-col gap-2 sm:gap-4 md:gap-6">
+                        <h2 className="flex items-center gap-1 sm:gap-2 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-extrabold leading-none">
                             <img
                                 src={englishFlag}
                                 alt="English Flag"
@@ -85,7 +85,7 @@ export default function WordOfTheDay() {
                             />
                             {word && word.english}
                         </h2>
-                        <h2 className="flex items-center gap-2 text-5xl font-extrabold leading-none">
+                        <h2 className="flex items-center gap-1 sm:gap-2 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-extrabold leading-none">
                             <img
                                 src={torresFlag}
                                 alt="Torres Strait Islander Flag"
@@ -94,7 +94,12 @@ export default function WordOfTheDay() {
                             {word && word.tsc}
                         </h2>
                     </div>
-                    <Volume2 color="white" size={120} strokeWidth={2} />
+                    <div className="hidden">
+                        <Volume2 color="white" size={60} strokeWidth={2} />
+                    </div>
+                    <div className="hidden">
+                        <Volume2 color="white" size={40} strokeWidth={2} />
+                    </div>
                 </div>
             </div>
         </div>

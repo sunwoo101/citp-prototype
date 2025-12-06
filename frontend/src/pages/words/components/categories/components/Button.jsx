@@ -14,12 +14,12 @@ export default function Button({
                 if (setCategory) setCategory(text);
                 if (setSelectCategory) setSelectCategory(false);
             }}
-            className={`relative w-full text-white rounded-4xl text-5xl font-extrabold py-16 px-8 leading-none overflow-hidden cursor-pointer`}
+            className={`relative w-full text-white rounded-2xl sm:rounded-3xl md:rounded-4xl text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-extrabold py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16 px-4 sm:px-6 md:px-8 leading-none overflow-hidden cursor-pointer`}
         >
-            <span className={`absolute inset-0 ${bgColor} rounded-4xl`} />
+            <span className={`absolute inset-0 ${bgColor} rounded-2xl sm:rounded-3xl md:rounded-4xl`} />
 
             <span
-                className={`absolute inset-3 ${ptColor} rounded-4xl`}
+                className={`absolute inset-1 sm:inset-2 md:inset-3 ${ptColor} rounded-2xl sm:rounded-3xl md:rounded-4xl`}
                 style={{
                     WebkitMaskImage: `url(${pattern})`,
                     maskImage: `url(${pattern})`,

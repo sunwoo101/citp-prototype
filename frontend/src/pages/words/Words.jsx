@@ -26,7 +26,7 @@ export default function Words() {
         <>
             <div className="flex flex-col min-h-screen">
                 <Header />
-                <main className="relative flex-1 flex flex-col gap-8 justify-center items-center p-8">
+                <main className="relative flex-1 flex flex-col gap-4 sm:gap-6 md:gap-8 justify-center items-center p-4 sm:p-6 md:p-8">
                     <span className="absolute inset-0 bg-[#008cff] pointer-events-none z-0" />
                     <span
                         className="absolute inset-0 bg-[#1eaaee] pointer-events-none z-0"

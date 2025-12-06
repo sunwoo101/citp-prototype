@@ -11,7 +11,7 @@ export default function Home() {
         <>
             <div className="flex flex-col min-h-screen">
                 <Header />
-                <main className="relative flex-1 flex flex-col gap-8 justify-center items-center p-8">
+                <main className="relative flex-1 flex flex-col gap-4 sm:gap-6 md:gap-8 justify-center items-center p-4 sm:p-6 md:p-8">
                     <span className="absolute inset-0 bg-[#008cff] pointer-events-none z-0" />
                     <span
                         className="absolute inset-0 bg-[#1eaaee] pointer-events-none z-0"
@@ -27,19 +27,19 @@ export default function Home() {
                         }}
                     />
 
-                    <div className="relative z-10 flex w-full flex-col items-center gap-8">
-                        <h1 className="text-white text-7xl font-black leading-none">
+                    <div className="relative z-10 flex w-full flex-col items-center gap-4 sm:gap-6 md:gap-8">
+                        <h1 className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight sm:leading-none text-center px-4">
                             FIND KALAW KAWAW YA WORDS!
                         </h1>
-                        <div className="w-full max-w-lg">
+                        <div className="w-full max-w-lg px-4">
                             <SearchInput />
                         </div>
-                        <div className="w-full flex flex-wrap justify-center items-center gap-4">
-                            <div className="flex flex-1 basis-0.5 min-w-[320px]">
+                        <div className="w-full flex flex-col lg:flex-row justify-center items-center gap-4 px-4">
+                            <div className="flex w-full lg:flex-1 lg:basis-0.5 lg:min-w-[320px]">
                                 <WordOfTheDay />
                             </div>
-                            <div className="flex-1 basis-0.5 min-w-[320px]">
-                                <div className="grid grid-cols-2 grid-rows-2 gap-4 p-4">
+                            <div className="w-full lg:flex-1 lg:basis-0.5 lg:min-w-[320px]">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 p-2 sm:p-4">
                                     <Link to="/words">
                                         <Button
                                             text={"WORDS"}

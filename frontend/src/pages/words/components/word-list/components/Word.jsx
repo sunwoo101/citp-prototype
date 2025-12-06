@@ -5,10 +5,10 @@ import pattern from "../../../../../assets/Pattern.svg";
 
 export default function Word({ english, kky, tsc }) {
     return (
-        <div className="relative flex flex-col gap-2 w-full h-full text-white rounded-4xl py-2 px-2 leading-none overflow-hidden">
-            <span className="absolute inset-0 bg-[#ff6600] rounded-4xl" />
+        <div className="relative flex flex-col gap-2 w-full h-full text-white rounded-2xl sm:rounded-3xl md:rounded-4xl py-2 px-2 leading-none overflow-hidden">
+            <span className="absolute inset-0 bg-[#ff6600] rounded-2xl sm:rounded-3xl md:rounded-4xl" />
             <span
-                className="absolute inset-3 bg-[#e55c00] rounded-4xl"
+                className="absolute inset-1 sm:inset-2 md:inset-3 bg-[#e55c00] rounded-2xl sm:rounded-3xl md:rounded-4xl"
                 style={{
                     WebkitMaskImage: `url(${pattern})`,
                     maskImage: `url(${pattern})`,
@@ -20,14 +20,14 @@ export default function Word({ english, kky, tsc }) {
                     maskSize: "150%",
                 }}
             />
-            <div className="relative z-10 flex flex-col gap-4 h-full p-8">
-                <h2 className="flex items-center justify-center gap-16 text-5xl font-extrabold leading-none">
+            <div className="relative z-10 flex flex-col gap-2 sm:gap-3 md:gap-4 h-full p-4 sm:p-6 md:p-8">
+                <h2 className="flex items-center justify-center gap-4 sm:gap-8 md:gap-12 lg:gap-16 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-none">
                     {kky}
                 </h2>
 
-                <div className="flex items-center justify-between px-6 mt-auto">
-                    <div className="flex flex-col gap-6">
-                        <h2 className="flex items-center gap-2 text-3xl font-extrabold leading-none">
+                <div className="flex items-center justify-between px-2 sm:px-4 md:px-6 mt-auto gap-2 sm:gap-4">
+                    <div className="flex flex-col gap-2 sm:gap-4 md:gap-6">
+                        <h2 className="flex items-center gap-1 sm:gap-2 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-extrabold leading-none">
                             <img
                                 src={englishFlag}
                                 alt="English Flag"
@@ -35,7 +35,7 @@ export default function Word({ english, kky, tsc }) {
                             />
                             {english}
                         </h2>
-                        <h2 className="flex items-center gap-2 text-3xl font-extrabold leading-none">
+                        <h2 className="flex items-center gap-1 sm:gap-2 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-extrabold leading-none">
                             <img
                                 src={torresFlag}
                                 alt="Torres Strait Islander Flag"
@@ -44,7 +44,12 @@ export default function Word({ english, kky, tsc }) {
                             {tsc}
                         </h2>
                     </div>
-                    <Volume2 color="white" size={80} strokeWidth={2} />
+                    <div className="hidden">
+                        <Volume2 color="white" size={60} strokeWidth={2} />
+                    </div>
+                    <div className="hidden">
+                        <Volume2 color="white" size={40} strokeWidth={2} />
+                    </div>
                 </div>
             </div>
         </div>

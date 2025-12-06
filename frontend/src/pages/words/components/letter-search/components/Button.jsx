@@ -14,12 +14,12 @@ export default function Button({
                 if (setEnglishPartial) setEnglishPartial(text);
                 if (setSelectLetter) setSelectLetter(false);
             }}
-            className={`relative w-full text-white rounded-4xl text-7xl font-extrabold py-16 px-8 leading-none overflow-hidden cursor-pointer`}
+            className={`relative w-full text-white rounded-xl sm:rounded-2xl md:rounded-3xl lg:rounded-4xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12 2xl:py-16 px-2 sm:px-4 md:px-6 lg:px-8 leading-none overflow-hidden cursor-pointer aspect-square flex items-center justify-center`}
         >
-            <span className={`absolute inset-0 ${bgColor} rounded-4xl`} />
+            <span className={`absolute inset-0 ${bgColor} rounded-xl sm:rounded-2xl md:rounded-3xl lg:rounded-4xl`} />
 
             <span
-                className={`absolute inset-3 ${ptColor} rounded-4xl`}
+                className={`absolute inset-1 sm:inset-2 md:inset-3 ${ptColor} rounded-xl sm:rounded-2xl md:rounded-3xl lg:rounded-4xl`}
                 style={{
                     WebkitMaskImage: `url(${pattern})`,
                     maskImage: `url(${pattern})`,
