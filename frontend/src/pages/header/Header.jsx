@@ -5,7 +5,15 @@ import { CircleUserRound } from "lucide-react";
 import { Menu } from "lucide-react";
 import logo from "../../assets/Logo.PNG";
 
+import useIsMobile from "../../hooks/useIsMobile";
+
 export default function Header() {
+    const isMobile = useIsMobile();
+
+    if (isMobile) {
+        return <></>;
+    }
+
     return (
         <header className="flex items-center justify-between p-4">
             <span className="text-8xl">
